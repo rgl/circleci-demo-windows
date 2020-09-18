@@ -49,7 +49,7 @@ jobs:
             # install dependencies.
             Bash 'pacman --noconfirm -Sy xorriso'
       - run:
-          name: use
+          name: go
           shell: powershell.exe
           command: |
             # define a function for easying the execution of bash scripts.
@@ -72,8 +72,7 @@ jobs:
             
             Bash @'
             set -euxo pipefail
-
-            env
-            
+            env | sort
             pacman --version
+            xorriso --version
             '@
