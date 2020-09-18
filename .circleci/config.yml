@@ -49,5 +49,6 @@ jobs:
             # install dependencies.
             Bash 'pacman --noconfirm -Sy xorriso'
       - run:
-          name: pacman
-          command: pacman --help
+          name: pacman version
+          shell: cmd.exe
+          command: "C:\tools\msys64\usr\bin\bash.exe" -lc "pacman --version" || exit /b %ERRORLEVEL%
