@@ -51,4 +51,6 @@ jobs:
       - run:
           name: pacman version
           shell: cmd.exe
-          command: "C:/tools/msys64/usr/bin/bash.exe" -lc "pacman --version" || exit /b %ERRORLEVEL%
+          command: |
+            C:/tools/msys64/usr/bin/bash.exe -leuc "env" || exit /b %ERRORLEVEL%
+            C:/tools/msys64/usr/bin/bash.exe -leuc "pacman --version" || exit /b %ERRORLEVEL%
