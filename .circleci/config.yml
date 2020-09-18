@@ -7,18 +7,14 @@ jobs:
   build:
     executor:
       name: win/vs2019
-      shell: bash.exe
+      shell: powershell.exe
     steps:
       - run:
-          name: env
-          command: env
-      - run:
           name: install msys2
-          command: choco install --no-progress -y msys2
-      - run:
-          name: install msys2 dependencies
-          shell: powershell.exe
           command: |
+            # install msys2.
+            choco install --no-progress -y msys2
+
             # configure the msys2 launcher to let the shell inherith the PATH.
             $msys2BasePath = 'C:\tools\msys64'
             $msys2ConfigPath = "$msys2BasePath\msys2.ini"
@@ -49,8 +45,7 @@ jobs:
             # install dependencies.
             Bash 'pacman --noconfirm -Sy xorriso'
       - run:
-          name: go
-          shell: powershell.exe
+          name: use msys2
           command: |
             # define a function for easying the execution of bash scripts.
             $bashPath = "C:\tools\msys64\usr\bin\bash.exe"
