@@ -13,5 +13,11 @@ jobs:
           name: env
           command: env
       - run:
+          name: chocolatey
+          command: choco --version
+      - run:
+          name: install msys2
+          command: choco install -y msys2
+      - run:
           name: pacman
           command: pacman --help
