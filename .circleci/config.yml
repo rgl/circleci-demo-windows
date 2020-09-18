@@ -47,7 +47,7 @@ jobs:
             }
             
             # install dependencies.
-            Bash 'pacman --noconfirm -Sy nxorriso'
+            Bash 'pacman --noconfirm -Sy xorriso'
       - run:
           name: pacman
           command: pacman --help
